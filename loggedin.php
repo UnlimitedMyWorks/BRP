@@ -1,3 +1,4 @@
+
 <?php include("config.php"); ?>
 <html itemscope="" itemtype="http://schema.org/WebPage" lang="en" dir="ltr">
 <head>
@@ -18,20 +19,16 @@
 <link href="css/font-awesome.min.css" rel="stylesheet">
       <style>
       @import url('https://fonts.googleapis.com/css?family=Poppins');
-
       /* BASIC */
-
       html
       {
         background-color: #56baed;
       }
-
       body
       {
         font-family: "Poppins", sans-serif;
         height: 100vh;
       }
-
       a
       {
         color: #92badd;
@@ -39,9 +36,7 @@
         text-decoration: none;
         font-weight: 400;
       }
-
       /* STRUCTURE */
-
       .wrapper
       {
         display: flex;
@@ -52,7 +47,6 @@
         min-height: 100%;
         padding: 20px;
       }
-
       #formContent {
         -webkit-border-radius: 10px 10px 10px 10px;
         border-radius: 10px 10px 10px 10px;
@@ -66,7 +60,6 @@
         box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
         text-align: center;
       }
-
       #formFooter {
         background-color: #f6f6f6;
         border-top: 1px solid #dce8f1;
@@ -75,11 +68,7 @@
         -webkit-border-radius: 0 0 10px 10px;
         border-radius: 0 0 10px 10px;
       }
-
-
-
       /* FORM TYPOGRAPHY*/
-
       input[type=button], input[type=submit], input[type=reset]  {
         background-color: #56baed;
         border: none;
@@ -101,11 +90,9 @@
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
       }
-
       input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
         background-color: #4CAF50;
       }
-
       input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
         -moz-transform: scale(0.95);
         -webkit-transform: scale(0.95);
@@ -113,7 +100,6 @@
         -ms-transform: scale(0.95);
         transform: scale(0.95);
       }
-
       input[type=text] {
         background-color: #f6f6f6;
         border: none;
@@ -134,20 +120,14 @@
         -webkit-border-radius: 5px 5px 5px 5px;
         border-radius: 5px 5px 5px 5px;
       }
-
       input[type=text]:focus {
         background-color: #fff;
         border-bottom: 2px solid #5fbae9;
       }
-
       input[type=text]:placeholder {
         color: #cccccc;
       }
-
-
-
       /* ANIMATIONS */
-
       /* Simple CSS3 Fade-in-down Animation */
       .fadeInDown {
         -webkit-animation-name: fadeInDown;
@@ -157,7 +137,6 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
       }
-
       @-webkit-keyframes fadeInDown {
         0% {
           opacity: 0;
@@ -170,7 +149,6 @@
           transform: none;
         }
       }
-
       @keyframes fadeInDown {
         0% {
           opacity: 0;
@@ -183,51 +161,42 @@
           transform: none;
         }
       }
-
       /* Simple CSS3 Fade-in Animation */
       @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
       @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
       @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-
       .fadeIn {
         opacity:0;
         -webkit-animation:fadeIn ease-in 1;
         -moz-animation:fadeIn ease-in 1;
         animation:fadeIn ease-in 1;
-
         -webkit-animation-fill-mode:forwards;
         -moz-animation-fill-mode:forwards;
         animation-fill-mode:forwards;
-
         -webkit-animation-duration:1s;
         -moz-animation-duration:1s;
         animation-duration:1s;
       }
-
       .fadeIn.first {
         -webkit-animation-delay: 0.4s;
         -moz-animation-delay: 0.4s;
         animation-delay: 0.4s;
       }
-
       .fadeIn.second {
         -webkit-animation-delay: 0.6s;
         -moz-animation-delay: 0.6s;
         animation-delay: 0.6s;
       }
-
       .fadeIn.third {
         -webkit-animation-delay: 0.8s;
         -moz-animation-delay: 0.8s;
         animation-delay: 0.8s;
       }
-
       .fadeIn.fourth {
         -webkit-animation-delay: 1s;
         -moz-animation-delay: 1s;
         animation-delay: 1s;
       }
-
       /* Simple CSS3 Fade-in Animation */
       .underlineHover:after {
         display: block;
@@ -239,30 +208,23 @@
         content: "";
         transition: width 0.2s;
       }
-
       .underlineHover:hover {
         color: #0d0d0d;
       }
-
       .underlineHover:hover:after{
         width: 100%;
       }
-
 .pass
 {
   input: password;
 }
-
       /* OTHERS */
-
       *:focus {
           outline: none;
       }
-
       #icon {
         width:60%;
       }
-
       * {
         box-sizing: border-box;
       }
@@ -287,11 +249,11 @@
         <h4><b> Set your Username and Password </b></h4>
         <br><br>
         <!-- Login Form -->
-        <form>
+        <form method="POST">
           <input type="text" id="username" name="username" placeholder="Username" required>
           <input type="text" id="password" fromControlName="password" name="password" placeholder="password" class="pass" required>
-          <input type="text" id="password" name="repassword" placeholder="Re-enter password" method="POST" required>
-          <input type="submit" onclick="login()" name="submit" value="Regsiter">
+          <input type="text" id="password" name="repassword" placeholder="Re-enter password" required>
+          <input type="submit"  name="submit" value="Regsiter">
         </form>
 
       </div>
@@ -313,60 +275,42 @@
 </div>
 <?php
 //validating credetials
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit']))
+if (isset($_POST['submit']))
 {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     if($password != $repassword)
     {
-         $msg = "passwords doesn't match";
-         echo "<script>alert(' pass not match')</script>";
+        echo "<script>alert('Password Does Not Match!!')</script>";
     }
     else
     {
-      $sql="INSERT INTO `login`(`username`, `password`)
-            VALUES ('$username','".md5($password)."')";
-      $result=$mysqli->query($sql);
-      echo $sql;
-      if($result)
-        echo "<script>
-          window.location = 'registered.php';
-              </script>";
+        $sql="SELECT username FROM `login` WHERE username='$username'";
+        $result=$mysqli->query($sql);
+        if(mysqli_num_rows($result)>0)
+        {
+            echo "<script>alert('Username Exists!!');</script>";
+        }
+        else
+        {
+            $password=md5($password);
+            $sql="INSERT INTO `login`(`username`, `password`) VALUES ('$username','$password')";
+            echo $sql;
+            $result=$mysqli->query($sql);
+            if($result)
+            {
+                echo "<script>window.location = 'registered.php';</script>";
+            }
+        }
     }
-//username taken
-  	$sql_u = "SELECT * FROM login (username, password) WHERE username = '".$username."'";
-    $res_u = $mysqli->query($sql_u);
 
-    if(mysqli_num_rows($sql_u)>0)
-    {
-      $display_errors = "taken";
-    } 
-
-    if (empty($username) || empty($password) || empty($repassword))
-    {
-      $display_errors = "Complete all fields";
-    }
-    else
-    {
-      $sql="INSERT INTO `login`(`username`, `password`)
-        VALUES ('$username','".md5($password)."')";
-      $result=$mysqli->query($sql);
-      echo $sql;
-      if($result)
-      echo "<script>
-               window.location = 'registered.php';
-            </script>";
-    }
-  }
-?>
-<script>
-  function login()
-{
-  if (document.getElementById("usrnme").value == "username" && document.getElementById("psw").value == "password" )
-  
 }
-</script>
+?>
+
     </body>
 
 </html>
+
+
+
