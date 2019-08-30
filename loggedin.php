@@ -1,9 +1,55 @@
 
-<?php include("config.php"); ?>
+<?php include("config.php");?>
 <html itemscope="" itemtype="http://schema.org/WebPage" lang="en" dir="ltr">
 <head>
 <!-- Character set configuration -->
 <meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $('$username').keyup(function)
+    {
+      $.post("avail_user.php",{username: $('$username').val()},function(response)
+      {
+        $('$usernameResult').fadeOut();
+        setTimeout("Userresult('usernameResult','"+escape(response)+"')",350);
+      });
+      return false;
+    });
+  });
+  function Userresult(id,response)
+  {
+    $('#usernameLoading').hide();
+    $('#'+id).html(unescape(response));
+    $('#'+id).fadeIn();
+  }
+  var simpleAlert = document.querySelector(".simple-alert");
+
+simpleAlert.addEventListener("click", function (e) {
+
+e.preventDefault();
+
+injectTemplate(getBannerTemplate());
+
+var btnClose = document.querySelector(".banner-close");
+
+btnClose.addEventListener("click", function (closeEvt) {
+
+var banner = document.querySelector(".banner");
+
+    banner.parentNode.removeChild(banner);
+
+});
+
+});
+</script>
+<script type='x-template' id="banner-template">
+  <div class"banner banner-top alert-primary active" role="alert">
+    Username Not Exists
+    <span class="banner-close"></span>
+  </div>
+</script>
 <link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
 <!-- Google web font  -->
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700|Roboto:300,400,500" rel="stylesheet">
@@ -45,7 +91,7 @@
         justify-content: center;
         width: 100%;
         min-height: 100%;
-        padding: 20px;
+        padding: 10px;
       }
       #formContent {
         -webkit-border-radius: 10px 10px 10px 10px;
@@ -127,6 +173,35 @@
       input[type=text]:placeholder {
         color: #cccccc;
       }
+/*password styles*/
+input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+input[type=password]:placeholder {
+  color: #cccccc;
+}
+
       /* ANIMATIONS */
       /* Simple CSS3 Fade-in-down Animation */
       .fadeInDown {
@@ -228,6 +303,62 @@
       * {
         box-sizing: border-box;
       }
+      .banner {
+    position: absolute;
+    z-index: 9999;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+.banner.active {
+    display: block;
+}
+
+.banner-bottom {
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
+
+.banner-top {
+    left: 0;
+    right: 0;
+    top: 10px;
+}
+
+.banner-right {
+    right: 10px;
+    bottom: 10%;
+    min-height: 10vh;
+}
+
+.banner-left {
+    left: 10px;
+    bottom: 10%;
+    min-height: 10vh;
+}
+
+.alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.banner-close {
+    position: absolute;
+    right: 1.5%;
+}
+
+.banner-close:after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    content: 'X';
+    color: #69f;
+}
       </style>
 </head>
   <body onload="resetSelection()">
@@ -241,7 +372,6 @@
     </b>
     </h1>
   </center>
-<br>
   <form method="POST">
     <div class="wrapper">
       <div id="formContent">
@@ -251,8 +381,10 @@
         <!-- Login Form -->
         <form method="POST">
           <input type="text" id="username" name="username" placeholder="Username" required>
-          <input type="text" id="password" fromControlName="password" name="password" placeholder="password" class="pass" required>
-          <input type="text" id="password" name="repassword" placeholder="Re-enter password" required>
+          <div id="usernameLoading"></div>
+          <span id="usernameResult"></span>
+          <input type="password" id="password" fromControlName="password" name="password" placeholder="password" class="pass" required>
+          <input type="password" id="password" name="repassword" placeholder="Re-enter password" required>
           <input type="submit"  name="submit" value="Regsiter">
         </form>
 
@@ -311,6 +443,3 @@ if (isset($_POST['submit']))
     </body>
 
 </html>
-
-
-
