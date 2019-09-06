@@ -4,12 +4,17 @@
 <head>
 <!-- Character set configuration -->
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script type="text/javascript">
   $(document).ready(function()
   {
+    alert("hello");
     $('$username').keyup(function)
     {
+      alert("hello");
       $.post("avail_user.php",{username: $('$username').val()},function(response)
       {
         $('$usernameResult').fadeOut();
@@ -405,7 +410,37 @@ input[type=password]:placeholder {
   <!-- Container End -->
   <div class="space-50"></div>
 </div>
+
+
+
 <?php
+//validating UserName
+if(isset($_POST['text']))
+{
+  $username = $_POST['username'];
+  if($username == 'username')
+  {
+    $sql="SELECT username FROM `login` WHERE username='$username'";
+    $result=$mysqli->query($sql);
+    if(mysqli_num_rows($result)>0)
+    {
+      echo "<script>alert('Username Exists!!');</script>";
+    }
+    else
+    {
+      $password=md5($password);
+      $sql="INSERT INTO `login`(`username`, `password`) VALUES ('$username','$password')";
+      echo $sql;
+      $result=$mysqli->query($sql);
+      if($result)
+      {
+        echo "<script>window.location = 'registered.php';</script>";
+      }
+    }
+  }
+}
+
+
 //validating credetials
 if (isset($_POST['submit']))
 {
@@ -438,6 +473,8 @@ if (isset($_POST['submit']))
     }
 
 }
+
+
 ?>
 
     </body>
