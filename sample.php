@@ -49,19 +49,71 @@ button:hover
 
 .loginbtn
 {
-width: auto;
+  background-color: #56baed;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.0s ease-in-out;
+        -moz-transition: all 0.0s ease-in-out;
+        -ms-transition: all 0.0s ease-in-out;
+        -o-transition: all 0.0s ease-in-out;
+        transition: all 0.0s ease-in-out;
 padding: 14px 20px;
 border: 0px 8px;
 width: auto;
 }
+.loginbtn:hover  {
+        background-color: #4CAF50;
+      }
+      .loginbtn:active{
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+      }
 
 /* Extra styles for the cancel button */
 .cancelbtn
 {
+  background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.0s ease-in-out;
+        -moz-transition: all 0.0s ease-in-out;
+        -ms-transition: all 0.0s ease-in-out;
+        -o-transition: all 0.0s ease-in-out;
+        transition: all 0.0s ease-in-out;
   width: auto;
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #4CAF50;
 }
+.cancelbtn:hover  {
+        background-color: #f44336;
+      }
+      .cancelbtn:active{
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+      }
 
 /* Center the image and position the close button */
 .imgcontainer
