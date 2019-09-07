@@ -1950,7 +1950,7 @@ pre code {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
-  .col-md-12, .col-md-email {
+  .col-md-12 {
     width: 100%;
   }
   .col-md-11 {
@@ -2561,6 +2561,18 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
+
+/* .tc
+{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+*>tc
+{
+  text-align: center !important;
+  display: block;
+} */
+
 .form-control {
   display: block;
   width: 100%;
