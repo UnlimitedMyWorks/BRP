@@ -24,6 +24,12 @@
         background-image: url("image/white_texture.png");
       }
 
+      .tc
+      {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
       .button
       {
         position: absolute;
@@ -85,15 +91,17 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-email">
+              <div class="col-md-12">
                 <div class="form-group common-ico">
                   <label>Email</label>
                   <input id="email" maxlength="40" type="email" name="email" class="form-control" placeholder="Email" required>
                 </div>
               </div>
-              <div class="form-group common-ico">
-                <label>Address</label>
-                <input id="address" maxlength="150" type="text" name="address" class="form-control" placeholder="Address" required>
+              <div class="col-md-12">
+                <div class="form-group common-ico">
+                 <label>Address</label>
+                 <input id="address" maxlength="150" type="text" name="address" class="form-control" placeholder="Address" required>
+                </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -150,19 +158,24 @@
                 </div>
               </div>
               <div class="row">
-
                 <div class="col-md-6">
                   <div class="form-group common-ico">
-                    <label>&nbsp;&nbsp;&nbsp; Mobile</label>
-                    <input id="phone" maxlength="10" type="text" name="mobile" class="form-control" placeholder="Mobile" required>
+                    <label>
+                    Mobile
+                    </label>
+                    <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group common-ico">
-                    <label>Date of birth</label>
-                    <input id="dob" type="date" name="dob" class="form-control" placeholder="DD/MM/YYYY"   required>
+                    <label>
+                    Date of birth
+                    </label>
+                    <input id="dob" type="date" name="dob" class="form-control" placeholder="DD/MM/YYYY" required>
                   </div>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-md-6">
                   <div class="form-group common-ico">
                     <label>Zipcode</label>
@@ -188,20 +201,20 @@
               </label>
               </div>
               <br>
-              <center>
+            <center>
               <label class="control control--checkbox">
-              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-              <input type="checkbox" checked="checked"/>
+                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                <input type="checkbox" checked="checked"/>
                 <div class="control__indicator"></div>
               </label>
-            </center>
-            <br>
-            <br>
-              <center>
+    </center>
+              <br>
+              <br>
+              <div>
               <button type="submit" name="submit" method="POST" class="button">
                 Regsiter Now
-              </button>
-              </center>
+                </button>
+              </div>
             </form>
             <center><p class="msg-1 msg-2-bg"></p></center>
           </div>
