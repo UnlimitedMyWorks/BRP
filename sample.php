@@ -87,6 +87,38 @@ span.psw
   float: right;
   padding-top: 16px;
 }
+/* FORM TYPOGRAPHY*/
+input[type=button], input[type=submit], input[type=reset]  {
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+        background-color: #4CAF50;
+      }
+      input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+      }
 
 /* The Modal (background) */
 .modal
@@ -171,8 +203,8 @@ span.psw
 		</h1>
 
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><b>LOGIN</b></button>
-<button onclick="redirectto()" style="width:auto"><b>SIGNUP</b></button>
+<input type="submit"  name="submit" value="LOGIN" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">
+<input type="submit" onclick="redirectto()" style="width:auto" value="SIGNUP">
 </center>
 <div id="id01" class="modal">
 
@@ -227,7 +259,6 @@ function validategmail()
 
 function redirectto()
 {
-    alert("success");
     window.location = "hello.php";
 
 }
