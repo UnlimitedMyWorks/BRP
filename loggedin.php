@@ -71,10 +71,6 @@ var banner = document.querySelector(".banner");
       <style>
       @import url('https://fonts.googleapis.com/css?family=Poppins');
       /* BASIC */
-      html
-      {
-        background-color: #56baed;
-      }
       body
       {
         font-family: "Poppins", sans-serif;
@@ -378,23 +374,24 @@ input[type=password]:placeholder {
     </h1>
   </center>
   <form method="POST">
-    <div class="wrapper">
+    <br><br><br>
+    <center>
       <div id="formContent">
-<br><br>
+        <br><br>
         <h4><b> Set your Username and Password </b></h4>
         <br><br>
         <!-- Login Form -->
-        <form method="POST">
-          <input type="text" id="username" name="username" placeholder="Username" required>
+        
+          <input type="text" id="username" name="username" placeholder="Username" required="">
           <div id="usernameLoading"></div>
           <span id="usernameResult"></span>
-          <input type="password" id="password" fromControlName="password" name="password" placeholder="password" class="pass" required>
-          <input type="password" id="password" name="repassword" placeholder="Re-enter password" required>
-          <input type="submit"  name="submit" value="Regsiter">
-        </form>
+          <input type="password" id="password" fromcontrolname="password" name="password" placeholder="password" class="pass" required="">
+          <input type="password" id="password" name="repassword" placeholder="Re-enter password" required="">
+          <input type="submit" name="submit" value="Regsiter">
+        
 
       </div>
-    </div>
+    </center>
   </form>
             <center>
               <p class="msg-1 msg-2-bg">
