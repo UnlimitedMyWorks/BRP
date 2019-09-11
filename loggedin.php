@@ -387,7 +387,7 @@ input[type=password]:placeholder {
           <span id="usernameResult"></span>
           <input type="password" id="password" fromcontrolname="password" name="password" placeholder="password" class="pass" required="">
           <input type="password" id="password" name="repassword" placeholder="Re-enter password" required="">
-          <input type="submit" name="submit" value="Regsiter">
+          <input type="submit" method="POST" name="submit" value="Regsiter">
         
 
       </div>

@@ -255,8 +255,7 @@
     $result=$mysqli->query($sql);
     echo $sql;
     if($result)
-      echo "<script >
-      window.location = 'loggedin.php';</script>";
+    echo "<script>window.location = 'loggedin.php';</script>";
   }
 ?>
 <!-- jQuery JavaScript plugins -->
