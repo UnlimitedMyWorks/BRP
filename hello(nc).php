@@ -195,7 +195,7 @@
                 <br>
                 <br>
                 <center>
-                  <button type="submit" method="POST" style="justify-content: center;" class="button">Regsiter Now</button>
+                  <button type="submit" method="POST" style="justify-content: center;" name="submit" class="button">Regsiter Now</button>
                 </center>
               </form>
               <center><p class="msg-1 msg-2-bg"></p></center>
