@@ -21,7 +21,7 @@
       body
       {
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url("image/white_texture.png");
+        /* background-image: url("image/bg.png"); */
       }
 
       .tc
@@ -30,16 +30,37 @@
         margin-right: auto !important;
       }
 
-      .button
-      {
-        position: center;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
+      /* FORM TYPOGRAPHY*/
+      input[type=button], input[type=submit], input[type=reset]  {
+        background-color: #56baed;
         border: none;
-        cursor: pointer;
-        width: 50%;
+        color: white;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        font-size: 13px;
+        /* -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+        box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4); */
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.1s ease-in-out;
+        -moz-transition: all 0.1s ease-in-out;
+        -ms-transition: all 0.1s ease-in-out;
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+      }
+      input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+        background-color: #4CAF50;
+      }
+      input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+        -moz-transform: scale(0.95);
+        -webkit-transform: scale(0.95);
+        -o-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
       }
 
       </style>
@@ -56,6 +77,8 @@
     </b>
 		</h1>
 	</center>
+  <br>
+  <br>
   <!-- This is unqiue ID Begin -->
 <div id="lsf">
   <!-- Signup Begin -->
@@ -69,7 +92,9 @@
         <div class="col-xs-12 col-md-8 col-sm-8 col-lg-8">
             <div class="signup-box">
               <h3 class="title mar text-center">
-                Fill out the form to register to our event
+              <strong>
+                Fill out the form to register
+                </strong>
               </h3>
               <form method="POST">
                 <div class="row">
@@ -195,7 +220,7 @@
                 <br>
                 <br>
                 <center>
-                  <button type="submit" method="POST" style="justify-content: center;" name="submit" class="button">Regsiter Now</button>
+                  <input type="submit" method="POST" style="justify-content: center;" name="submit" class="button" value="Regsiter Now">
                 </center>
               </form>
               <center><p class="msg-1 msg-2-bg"></p></center>
