@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 26, 2019 at 07:30 PM
+-- Generation Time: Sep 11, 2019 at 05:12 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -30,16 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `login` (
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`username`, `password`) VALUES
-('hello', 'hello'),
-('hi', 'hi');
 
 -- --------------------------------------------------------
 
@@ -60,14 +52,18 @@ CREATE TABLE `registrations` (
   `gender` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `registrations`
+-- Table structure for table `tickets`
 --
 
-INSERT INTO `registrations` (`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `DOB`, `zipcode`, `gender`) VALUES
-('h', 'ihi', 'lh@gmail.com', 'ih', 'AndhraPradesh', 'VijayawÄda', 9876657098, '1998-10-10', 458965, 'Male'),
-('sadg', 'dj', 'dghj@gmail.com', 'shgd', 'AndhraPradesh', 'VijayawÄda', 9876789098, '1998-10-10', 345321, 'Male'),
-('hi', 'hi', 'hi@gmail.com', 'hi', 'AndhraPradesh', 'Anantapur', 9999999999, '1998-09-09', 999999, 'Male');
+CREATE TABLE `tickets` (
+  `username` varchar(20) NOT NULL,
+  `from` varchar(20) NOT NULL,
+  `to` varchar(20) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
@@ -84,6 +80,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `registrations`
   ADD PRIMARY KEY (`mobile`);
+
+--
+-- Indexes for table `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
