@@ -32,7 +32,7 @@
 
       .button
       {
-        position: absolute;
+        position: center;
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
@@ -67,162 +67,144 @@
         <br>
         <div class="col-xs-12 col-md-2 col-sm-2 col-lg-2"></div>
         <div class="col-xs-12 col-md-8 col-sm-8 col-lg-8">
-          <div class="signup-box">
-            <h2 class="title mar text-center">
-              Fill out the form to complete your KYC
-            </h2>
-            <br><br>
-            <form method="POST">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>
-                      First Name
-                    </label>
-                    <input id="fname" type="text" maxlength="20" name="fname" class="form-control" placeholder="First Name" required>
+            <div class="signup-box">
+              <h3 class="title mar text-center">
+                Fill out the form to register to our event
+              </h3>
+              <form method="POST">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>First Name</label>
+                      <input type="text" maxlength="20" name="fname" class="form-control" placeholder="First Name" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>Last Name</label>
+                      <input type="text" maxlength="20" name="lname" class="form-control" placeholder="Last Name" required>
+                      </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>
-                      Last Name
-                    </label>
-                    <input id="lname" type="text" maxlength="20" name="lname" class="form-control" placeholder="Last Name" required>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-12">
                 <div class="form-group common-ico">
-                  <label>Email</label>
+                  <label> Email </label>
                   <input id="email" maxlength="40" type="email" name="email" class="form-control" placeholder="Email" required>
-                </div>
-              </div>
-              <div class="col-md-12">
+                  </div>
                 <div class="form-group common-ico">
-                 <label>Address</label>
-                 <input id="address" maxlength="150" type="text" name="address" class="form-control" placeholder="Address" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>State or Territory</label>
-
-                    <select id="state" size="1" onchange="makeSubmenu(this.value)"class="form-control pad-left" name="state" required onclick="filterCity()">
-                    <option value="" disabled selected>Choose State</option>
-                    <option value="AndamanandNicobarIslands" > Andaman and Nicobar Islands </option>
-                    <option value="AndhraPradesh"> Andhra Pradesh </option>
-                    <option value="ArunachalPradesh"> Arunachal Pradesh </option>
-                    <option value="Assam"> Assam </option>
-                    <option value="Bihar"> Bihar </option>
-                    <option value="Chandigarh"> Chandigarh </option>
-                    <option value="Chhattisgarh"> Chhattisgarh </option>
-                    <option value="DadraandNagarHaveli"> Dadra and Nagar Haveli </option>
-                    <option value="Daman and Diu"> Daman and Diu </option>
-                    <option value="Delhi"> Delhi </option>
-                    <option value="Goa"> Goa </option>
-                    <option value="Gujarat"> Gujarat </option>
-                    <option value="Haryana"> Haryana </option>
-                    <option value="HimachalPradesh"> Himachal Pradesh </option>
-                    <option value="JammuandKashmir"> Jammu and Kashmir </option>
-                    <option value="Jharkhand"> Jharkhand </option>
-                    <option value="Karnataka"> Karnataka </option>
-                    <option value="Kerala"> Kerala </option>
-                    <option value="Lakshadweep"> Lakshadweep </option>
-                    <option value="MadhyaPradesh"> Madhya Pradesh </option>
-                    <option value="Maharastra"> Maharastra </option>
-                    <option value="Manipur"> Manipur </option>
-                    <option value="Meghalaya"> Meghalaya </option>
-                    <option value="Mizoram"> Mizoram </option>
-                    <option value="Nagaland"> Nagaland </option>
-                    <option value="Odisha"> Odisha </option>
-                    <option value="Puducherry"> Puducherry </option>
-                    <option value="Punjab"> Punjab </option>
-                    <option value="Rajasthan"> Rajasthan </option>
-                    <option value="Sikkim"> Sikkim </option>
-                    <option value="Tamil Nadu"> Tamil Nadu </option>
-                    <option value="Telangana"> Telangana </option>
-                    <option value="Tripura"> Tripura </option>
-                    <option value="UttarPradesh"> Uttar Pradesh </option>
-                    <option value="Uttarakhand"> Uttarakhand </option>
-                    <option value="WestBengal"> West Bengal </option>
-                    </select>
+                  <label>Address</label>
+                  <input maxlength="150" type="text" name="address" class="form-control" placeholder="Address" required>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>City</label>
-                      <select id="citySelect" size="1" class="form-control pad-left" name="city" required>
-                      <option value="" disabled selected>Choose City</option>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>State or Territory</label>
+  
+                      <select id="state" size="1" onchange="makeSubmenu(this.value)" class="form-control pad-left" name="state" required onclick="filterCity()">
+                      <option value="" disabled="" selected="">Choose State</option>
+                      <option value="AndamanandNicobarIslands"> Andaman and Nicobar Islands </option>
+                      <option value="AndhraPradesh"> Andhra Pradesh </option>
+                      <option value="ArunachalPradesh"> Arunachal Pradesh </option>
+                      <option value="Assam"> Assam </option>
+                      <option value="Bihar"> Bihar </option>
+                      <option value="Chandigarh"> Chandigarh </option>
+                      <option value="Chhattisgarh"> Chhattisgarh </option>
+                      <option value="DadraandNagarHaveli"> Dadra and Nagar Haveli </option>
+                      <option value="Daman and Diu"> Daman and Diu </option>
+                      <option value="Delhi"> Delhi </option>
+                      <option value="Goa"> Goa </option>
+                      <option value="Gujarat"> Gujarat </option>
+                      <option value="Haryana"> Haryana </option>
+                      <option value="HimachalPradesh"> Himachal Pradesh </option>
+                      <option value="JammuandKashmir"> Jammu and Kashmir </option>
+                      <option value="Jharkhand"> Jharkhand </option>
+                      <option value="Karnataka"> Karnataka </option>
+                      <option value="Kerala"> Kerala </option>
+                      <option value="Lakshadweep"> Lakshadweep </option>
+                      <option value="MadhyaPradesh"> Madhya Pradesh </option>
+                      <option value="Maharastra"> Maharastra </option>
+                      <option value="Manipur"> Manipur </option>
+                      <option value="Meghalaya"> Meghalaya </option>
+                      <option value="Mizoram"> Mizoram </option>
+                      <option value="Nagaland"> Nagaland </option>
+                      <option value="Odisha"> Odisha </option>
+                      <option value="Puducherry"> Puducherry </option>
+                      <option value="Punjab"> Punjab </option>
+                      <option value="Rajasthan"> Rajasthan </option>
+                      <option value="Sikkim"> Sikkim </option>
+                      <option value="Tamil Nadu"> Tamil Nadu </option>
+                      <option value="Telangana"> Telangana </option>
+                      <option value="Tripura"> Tripura </option>
+                      <option value="UttarPradesh"> Uttar Pradesh </option>
+                      <option value="Uttarakhand"> Uttarakhand </option>
+                      <option value="WestBengal"> West Bengal </option>
                       </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>
-                    Mobile
-                    </label>
-                    <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>City</label>
+                      <select id="citySelect" size="1" class="form-control pad-left" name="city" required>
+                      <option value="" disabled="" selected="">Choose City</option>
+                      </select> 
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>
-                    Date of birth
-                    </label>
-                    <input id="dob" type="date" name="dob" class="form-control" placeholder="DD/MM/YYYY" required>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>
+                        Mobile
+                        </label>
+                        <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>
+                        Date of birth
+                      </label>
+                      <input id="dob" type="date" name="dob" class="form-control" placeholder="DD/MM/YYYY" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group common-ico">
+                      <label>Zipcode</label>
+                      <input id="zipcode" maxlength="6" type="text" name="zipcode" class="form-control" placeholder="Zipcode" required>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group common-ico">
-                    <label>Zipcode</label>
-                    <input id="zipcode" maxlength="6" type="text" name="zipcode" class="form-control" placeholder="Zipcode" required>
-                  </div>
+                <div class="form-group sm-mar">
+                  <label>Gender &nbsp;</label>
+                  <label class="radio-inline">
+                  <input id="gender" type="radio" name="gender" value="Male">
+                  Male </label>
+                  <label class="radio-inline">
+                  <input type="radio" id="gender" name="gender" value="Female">
+                  Female </label>
+                  <label class="radio-inline">
+                  <input type="radio" name="gender" id="gender" value="other">
+                  Other </label>
                 </div>
-              </div>
-                <label>
-                  <div class="form-group sm-mar">
-                  &nbsp;&nbsp; Gender &nbsp;
-                </label>
-                <label class="radio-inline">
-                <input type="radio" name="gender" value="Male">
-                Male
-              </label>
-                <label class="radio-inline">
-                <input type="radio" name="gender" value="Female">
-                Female
-              </label>
-                <label class="radio-inline">
-                <input type="radio" name="gender" value="other">
-                Other
-              </label>
-              </div>
-              <br>
-            <center>
-              <label class="control control--checkbox">
+                <label class="control tc control--checkbox">
                 I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-                <input type="checkbox" checked="checked"/>
+                <input type="checkbox" checked="checked">
                 <div class="control__indicator"></div>
-              </label>
-    </center>
-              <br>
-              <br>
-              <div>
-              <button type="submit" name="submit" method="POST" class="button">
-                Regsiter Now
-                </button>
-              </div>
-            </form>
-            <center><p class="msg-1 msg-2-bg"></p></center>
+                </label>
+                <br><br>
+                <br>
+                <br>
+                <center>
+                  <button type="submit" method="POST" style="justify-content: center;" name="submit" class="button">Regsiter Now</button>
+                </center>
+              </form>
+              <center><p class="msg-1 msg-2-bg"></p></center>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
           </div>
-          <br>
-          <br>
-          <br>
-          <br>
-        </div>
         <div class="col-xs-12 col-md-2 col-sm-2 col-lg-2"></div>
       </div>
     </div>
@@ -243,7 +225,6 @@
     $dob = $_POST['dob'];
     $zipcode = $_POST['zipcode'];
     $gender = $_POST['gender'];
-
     $sql="INSERT INTO `registrations`(`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `DOB`, `zipcode`, `gender`)
           VALUES ('$fname','$lname','$email','$address','$state','$city','$mobile','$dob','$zipcode','$gender')";
     $result=$mysqli->query($sql);
@@ -322,9 +303,7 @@ function makeSubmenu(value)
 }
 function redirectto()
 {
-
     window.location = "loggedin.php";
-
 }
 function displaySelected()
 {
