@@ -62,7 +62,14 @@
         -ms-transform: scale(0.95);
         transform: scale(0.95);
       }
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+      }
 
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
       </style>
 </head>
 <body>
@@ -181,7 +188,7 @@
                       <label>
                         Mobile
                         </label>
-                        <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required>
+                        <input id="phone" type="number" min="6000000000" max="9999999999" name="mobile" class="form-control" placeholder="Mobile" required >
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -250,12 +257,19 @@
     $dob = $_POST['dob'];
     $zipcode = $_POST['zipcode'];
     $gender = $_POST['gender'];
-    $sql="INSERT INTO `registrations`(`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `DOB`, `zipcode`, `gender`)
-          VALUES ('$fname','$lname','$email','$address','$state','$city','$mobile','$dob','$zipcode','$gender')";
-    $result=$mysqli->query($sql);
-    echo $sql;
-    if($result)
-    echo "<script>window.location = 'loggedin.php';</script>";
+    // if($mobile != 10)
+    // {
+    //   echo "<script>alert('enter valid phone number')</script>";
+    // }
+    // else
+    // {
+      $sql="INSERT INTO `registrations`(`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `DOB`, `zipcode`, `gender`)
+            VALUES ('$fname','$lname','$email','$address','$state','$city','$mobile','$dob','$zipcode','$gender')";
+      $result=$mysqli->query($sql);
+      echo $sql;
+      if($result)
+      echo "<script>window.location = 'loggedin.php';</script>";
+    // }
   }
 ?>
 <!-- jQuery JavaScript plugins -->
@@ -339,6 +353,19 @@ function resetSelection()
 {
   document.getElementById("state").selectedIndex = 0;
   document.getElementById("citySelect").selectedIndex = 0;
+}
+function inputNumber(evt)
+{
+  var ch = String.fromCharCode(evt.which);
+  if(!(/[0-9]/.test(ch)))
+  {
+    evt.preventDefault();
+  }
+  else if(document.getElementById("phone").length < 10)
+  {
+    alert("Please Enter valid phone number");
+  }
+  
 }
 </script>
 </body>

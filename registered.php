@@ -419,6 +419,37 @@ input[type=password]:placeholder {
         <!-- Login Form -->
         <select id="from" size="1" onchange="makeSubmenu(this.value)" class="select" name="from" required onclick="filterCity()" required="">
                       <option value="" disabled="" selected="">From</option>
+                      <option value="NGOsColony"> 1V - NGOs Colony Bus Stop </option>
+                      <option value="Secunderabad"> 1Y - Secunderabad Junction </option>
+                      <option value="KotiBusStop"> 1K/25 - Koti Bus Stop </option>
+                      <option value="Ziaguda"> 1J - Ziaguda </option>
+                      <option value="1P/25I-KBS"> 1P/25I - Koti Bus Stop </option>
+                      <option value="Falaknuma"> 1F/38S - Falaknuma </option>
+                      <option value="2-Secunderabad"> 2 - Secunderabad Junction </option>
+                      <option value="SuperBazar"> Super Bazar </option>
+                      <option value="NalgondaXRoads"> Nalgonda X Roads </option>
+                      <option value="Malakpet"> Malakpet </option>
+                      <option value="Chaderghat"> Chaderghat </option>
+                      <option value="Womenscollege"> Womens college </option>
+                      <option value="Koti"> Koti Bus Stop </option>
+                      <option value="RamKoti"> Ram Koti </option>
+                      <option value="Badichowdi"> Badichowdi </option>
+                      <option value="MadapatiHanumanthaSchool"> Madapati Hanumantha School </option>
+                      <option value="YMCA"> YMCA(Koti) Bus Stop </option>
+                      <option value="Narayanguda"> Narayanguda </option>
+                      <option value="Chikkadpally"> Chikkadpally </option>
+                      <option value="RTC"> RTC Cross Rd </option>
+                      <option value="GolcondaXRoads"> Golconda X Roads </option>
+                      <option value="SapthagiriTheater"> Sapthagiri Theater </option>
+                      <option value="RajaDelux"> Raja Delux </option>
+                      <option value="MusheerabadBusStop"> Musheerabad Bus Stop </option>
+                      <option value="JailGarden"> Jail Garden </option>
+                      <option value="GandhiHospital"> Gandhi Hospital </option>
+                      <option value="PadmaraoNagar"> Padmarao Nagar </option>
+                      <option value="Punjab"> Bhoiguda </option>
+                      </select>
+        <select id="from" size="1" onchange="makeSubmenu(this.value)" class="select" name="from" required onclick="filterCity()" required="">
+                      <option value="" disabled="" selected="">From</option>
                       <option value="NGOsColony"> NGOs Colony </option>
                       <option value="PanamaGodown"> Panama Godown </option>
                       <option value="LBNagar"> LB Nagar </option>
