@@ -419,15 +419,15 @@ input[type=password]:placeholder {
         <h2><b> Book Tickets </b></h4>
         <br><br>
         <!-- Login Form -->
-        <select id="from" size="1" onchange="makeSubmenu(this.value)" class="select" name="from" required onclick="filterCity()" required="">
+        <select id="busNo" size="1" onchange="makeSubmenu(this.value)" class="select" name="busNo" required onclick="filterBus()" required="">
                       <option value="" disabled="" selected="">Which Bus?</option>
                       <option value="NGOsColony"> 1V - NGOs Colony Bus Stop </option>
-                      <option value="Secunderabad"> 1Y - Secunderabad Junction </option>
+                      <option value="ySecunderabad"> 1Y - Secunderabad Junction </option>
                       <option value="KotiBusStop"> 1K/25 - Koti Bus Stop </option>
                       <option value="Ziaguda"> 1J - Ziaguda </option>
-                      <option value="1P/25I-KBS"> 1P/25I - Koti Bus Stop </option>
+                      <option value="Kbs"> 1P/25I - Koti Bus Stop </option>
                       <option value="Falaknuma"> 1F/38S - Falaknuma </option>
-                      <option value="2-Secunderabad"> 2 - Secunderabad Junction </option>
+                      <option value="Secunderabad"> 2 - Secunderabad Junction </option>
                       <option value="SuperBazar"> Super Bazar </option>
                       <option value="NalgondaXRoads"> Nalgonda X Roads </option>
                       <option value="Malakpet"> Malakpet </option>
@@ -437,7 +437,7 @@ input[type=password]:placeholder {
                       <option value="RamKoti"> Ram Koti </option>
                       <option value="Badichowdi"> Badichowdi </option>
                       <option value="MadapatiHanumanthaSchool"> Madapati Hanumantha School </option>
-                      <option value="YMCA"> YMCA(Koti) Bus Stop </option>
+                      <option value="Ymca"> YMCA(Koti) Bus Stop </option>
                       <option value="Narayanguda"> Narayanguda </option>
                       <option value="Chikkadpally"> Chikkadpally </option>
                       <option value="RTC"> RTC Cross Rd </option>
@@ -448,42 +448,17 @@ input[type=password]:placeholder {
                       <option value="JailGarden"> Jail Garden </option>
                       <option value="GandhiHospital"> Gandhi Hospital </option>
                       <option value="PadmaraoNagar"> Padmarao Nagar </option>
-                      <option value="Punjab"> Bhoiguda </option>
+                      <option value="Bhoiguda"> Bhoiguda </option>
                       </select>
                       <br>
-        <select id="from" size="1" onchange="makeSubmenu(this.value)" class="select" name="from" required onclick="filterCity()" required="">
-                      <option value="" disabled="" selected="">From</option>
-                      <option value="NGOsColony"> NGOs Colony </option>
-                      <option value="PanamaGodown"> Panama Godown </option>
-                      <option value="LBNagar"> LB Nagar </option>
-                      <option value="Kothapet"> Kothapet </option>
-                      <option value="Chaitanyapuri"> Chaitanyapuri </option>
-                      <option value="Dilsukhnagar"> Dilsukhnagar </option>
-                      <option value="Mosarambagh"> Mosarambagh </option>
-                      <option value="SuperBazar"> Super Bazar </option>
-                      <option value="NalgondaXRoads"> Nalgonda X Roads </option>
-                      <option value="Malakpet"> Malakpet </option>
-                      <option value="Chaderghat"> Chaderghat </option>
-                      <option value="Womenscollege"> Womens college </option>
-                      <option value="Koti"> Koti Bus Stop </option>
-                      <option value="RamKoti"> Ram Koti </option>
-                      <option value="Badichowdi"> Badichowdi </option>
-                      <option value="MadapatiHanumanthaSchool"> Madapati Hanumantha School </option>
-                      <option value="YMCA"> YMCA(Koti) Bus Stop </option>
-                      <option value="Narayanguda"> Narayanguda </option>
-                      <option value="Chikkadpally"> Chikkadpally </option>
-                      <option value="RTC"> RTC Cross Rd </option>
-                      <option value="GolcondaXRoads"> Golconda X Roads </option>
-                      <option value="SapthagiriTheater"> Sapthagiri Theater </option>
-                      <option value="RajaDelux"> Raja Delux </option>
-                      <option value="MusheerabadBusStop"> Musheerabad Bus Stop </option>
-                      <option value="JailGarden"> Jail Garden </option>
-                      <option value="GandhiHospital"> Gandhi Hospital </option>
-                      <option value="PadmaraoNagar"> Padmarao Nagar </option>
-                      <option value="Punjab"> Bhoiguda </option>
+                      <select id="boarding" size="1" onchange="makeSubmenu(this.value)" class="select" name="boarding" onclick="filterCity()" required="">
+                      <option value="" disabled="" selected="">boarding</option>
                       </select>
                       <br>
-                      <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" required onclick="filterCity()" required="">
+                      <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" onclick="filterCity()" required="">
+                      <option value="" disabled="" selected="">To</option>
+                      </select>
+                      <!-- <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" required onclick="filterCity()" required="">
                       <option value="" disabled="" selected="">To</option>
                       <option value="NGOsColony"> NGOs Colony </option>
                       <option value="PanamaGodown"> Panama Godown </option>
@@ -514,7 +489,7 @@ input[type=password]:placeholder {
                       <option value="PadmaraoNagar"> Padmarao Nagar </option>
                       <option value="Punjab"> Bhoiguda </option>
                       <option value="SecunderabadJunction"> Secunderabad Junction </option>
-                      </select>
+                      </select> -->
                       <br>
           <input type="date" id="doj" name="doj" placeholder="DD/MM/YYYY" required="">
           <br>
@@ -527,7 +502,7 @@ input[type=password]:placeholder {
   <?php
   if(isset($_POST["submit"]))
   {
-    $from = $_POST['from'];
+    $form = $_POST['boarding'];
     $to = $_POST['to'];
     $doj = $_POST['doj'];
     if($from == $to)
@@ -536,8 +511,8 @@ input[type=password]:placeholder {
     }
     else
     {
-    $sql="INSERT INTO `tickets`(`from`, `to`, `doj`)
-          VALUES ('$from','$to','$doj')";
+    $sql="INSERT INTO `tickets`(`boarding`, `to`, `doj`)
+          VALUES ('$board','$to','$doj')";
     $result=$mysqli->query($sql);
     echo $sql;
     if($result)
@@ -545,8 +520,109 @@ input[type=password]:placeholder {
     }
   }
 ?>
-    <script>
-
+    <script type="text/javascript">
+      var placesByBus = {
+        NGOsColony: ["Select Place","NGOs Colony Bus Stop","Panama Godown","LB Nagar Bus Stop","	Kothapet Bus Stop","Chaitanyapuri","Dilsukhnagar Bus station","Mosarambagh","Super Bazar","Nalgonda X Roads Bus Stop","Malakpet","Chaderghat Bus Stop","Womens college Bus Stop","Koti Bus Stop","Ram Koti","Badichowdi","Madapati Hanumantha School","YMCA(Koti) Bus Stop","Narayanguda","Chikkadpally","RTC Cross Rd","Golconda X Roads","Sapthagiri Theater","Raja Delux","	Musheerabad Bus Stop"
+        ,"Jail Garden","	Gandhi Hospital","Padmarao Nagar","Bhoiguda","Secunderabad Junction"],
+        ySecunderabad: ["Select Place","Secunderabad Junction","Bhoiguda","Padmarao Nagar","Gandhi Hospital","Jail Garden","Musheerabad Bus Stop","Raja Delux","Sapthagiri Theater","Golconda X Roads","RTC Cross Rd","Chikkadpally","Narayanguda","YMCA(Koti) Bus Stop","Madapati Hanumantha School","Badichowdi","Ram Koti","Koti Bus Stop","Putlibowli","CBS Bus Stop","Gowliguda","Afzalgunj Bus Stop","Osmania Hospital(OGH)",
+        "Madina Market","City College","East Bahadurpura","Zoo Park"],
+        KotiBusStop: ["Select Place","Koti Bus Stop","Ram Koti","Badichowdi","Madapati Hanumantha School","YMCA(Koti) Bus Stop","Narayanguda","Chikkadpally","RTC Cross Rd","Golconda X Roads","Sapthagiri Theater","Raja Delux","Musheerabad Bus Stop","Jail Garden","Gandhi Hospital","Padmarao Nagar","Bhoiguda","Secunderabad Junction"],
+        Ziaguda: ["Select Place","Ziaguda","Osmania Hospital(OGH)","Afzalgunj Bus Stop","Gowliguda","CBS Bus Stop","Putlibowli","Koti Bus Stop","Ram Koti","Badichowdi","Kachiguda Bus Stop","Madapati Hanumantha School","YMCA(Koti) Bus Stop","Narayanguda","Chikkadpally","RTC Cross Rd","Golconda X Roads","Sapthagiri Theater","Raja Delux","Musheerabad Bus Stop","Jail Garden","Gandhi Hospital","Padmarao Nagar","Bhoiguda","Secunderabad Junction"],
+        KotiBusStop: ["Select Place","Koti Bus Stop","Ram Koti","Badichowdi","Madapati Hanumantha School","YMCA(Koti) Bus Stop","Narayanguda","Chikkadpally","RTC Cross Rd","Golconda X Roads","Sapthagiri Theater","Raja Delux","Musheerabad Bus Stop","Jail Garden","Gandhi Hospital","Padmarao Nagar","Bhoiguda","Secunderabad Junction","patny","JBS Bus Stop","Kharkhana Bus Stop","Hanuman Temple(Tirumulgherry)","Tirumalgherry","Lal Bazar Bus Stop","Lothkunta Bus Stop",
+        "Alwal Bus Station","Alwal Police Station","Temple Alwal","Old Alwal(IG Statue) Bus Stop"],
+        Kbs: ["Select Place","Koti Bus Stop","Ram Koti","Badichowdi","Madapati Hanumantha School","YMCA(Koti) Bus Stop","Narayanguda","Chikkadpally","RTC Cross Rd","Golconda X Roads","Sapthagiri Theater","Raja Delux","Musheerabad Bus Stop","Jail Garden","Gandhi Hospital","Padmarao Nagar","Bhoiguda","Secunderabad Junction","Clock Tower","patny","JBS Bus Stop","Kharkhana Bus Stop","Tirumalgherry","Hanuman Temple(Tirumulgherry)","Lal Bazar Bus Stop",
+        "Lothkunta Bus Stop","Alwal Bus Station","Alwal Police Station","Temple Alwal","Old Alwal(IG Statue) Bus Stop"],
+        Falaknuma: ["Select Place",],
+        Secunderabad: ["Select Place",],
+        SuperBazar: ["Select Place",],
+        NalgondaXRoads: ["Select Place",],
+        Malakpet: ["Select Place",],
+        Chaderghat: ["Select Place",],
+        Womenscollege: ["Select Place",],
+        Koti: ["Select Place",],
+        RamKoti: ["Select Place",],
+        Badichowdi: ["Select Place",],
+        MadapatiHanumanthaSchool: [],
+        Ymca: [],
+        Narayanguda: [],
+        Chikkadpally: [],
+        Rtc: [],
+        GolcondaXRoads: [],
+        SapthagiriTheater: [],
+        RajaDelux: [],
+        MusheerabadBusStop: [],
+        JailGarden: [],
+        GandhiHospital: [],
+        PadmaraoNagar: [],
+        Bhoiguda: []
+      }
+      function makeSubmenu(value)
+      {
+        if(value.length==0)
+        {
+          document.getElementById("boarding").innerHTML = "<option></option>";
+        }
+        else
+        {
+          var busOptions = "";
+          for(busNum in placesByBus[value])
+          {
+            busOptions+="<option>"+placesByBus[value][busNum]+"</option>";
+          }
+          document.getElementById("boarding").innerHTML = busOptions;
+        }
+      }
+      function displaySelected()
+      {
+         var busNo = document.getElementById("busNo").value;
+         var boarding = document.getElementById("boarding").value;
+         alert(busNo+"\n"+boarding);
+      }
+      function resetSelection()
+      {
+        document.getElementById("busNo").selectedIndex = 0;
+        document.getElementById("boarding").selectedIndex = 0;
+      }
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+<!-- <select id="from" size="1" onchange="makeSubmenu(this.value)" class="select" name="from" required onclick="filterCity()" required="">
+<option value="" disabled="" selected="">From</option>
+<option value="NGOsColony"> NGOs Colony </option>
+<option value="PanamaGodown"> Panama Godown </option>
+<option value="LBNagar"> LB Nagar </option>
+<option value="Kothapet"> Kothapet </option>
+<option value="Chaitanyapuri"> Chaitanyapuri </option>
+<option value="Dilsukhnagar"> Dilsukhnagar </option>
+<option value="Mosarambagh"> Mosarambagh </option>
+<option value="SuperBazar"> Super Bazar </option>
+<option value="NalgondaXRoads"> Nalgonda X Roads </option>
+<option value="Malakpet"> Malakpet </option>
+<option value="Chaderghat"> Chaderghat </option>
+<option value="Womenscollege"> Womens college </option>
+<option value="Koti"> Koti Bus Stop </option>
+<option value="RamKoti"> Ram Koti </option>
+<option value="Badichowdi"> Badichowdi </option>
+<option value="MadapatiHanumanthaSchool"> Madapati Hanumantha School </option>
+<option value="YMCA"> YMCA(Koti) Bus Stop </option>
+<option value="Narayanguda"> Narayanguda </option>
+<option value="Chikkadpally"> Chikkadpally </option>
+<option value="RTC"> RTC Cross Rd </option>
+<option value="GolcondaXRoads"> Golconda X Roads </option>
+<option value="SapthagiriTheater"> Sapthagiri Theater </option>
+<option value="RajaDelux"> Raja Delux </option>
+<option value="MusheerabadBusStop"> Musheerabad Bus Stop </option>
+<option value="JailGarden"> Jail Garden </option>
+<option value="GandhiHospital"> Gandhi Hospital </option>
+<option value="PadmaraoNagar"> Padmarao Nagar </option>
+<option value="Punjab"> Bhoiguda </option>
+</select> -->
