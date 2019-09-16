@@ -8,47 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<!-- <script type="text/javascript">
-  $(document).ready(function()
-  {
-    alert("hello");
-    $('$username').keyup(function)
-    {
-      alert("hello");
-      $.post("avail_user.php",{username: $('$username').val()},function(response)
-      {
-        $('$usernameResult').fadeOut();
-        setTimeout("Userresult('usernameResult','"+escape(response)+"')",350);
-      });
-      return false;
-    });
-  });
-  function Userresult(id,response)
-  {
-    $('#usernameLoading').hide();
-    $('#'+id).html(unescape(response));
-    $('#'+id).fadeIn();
-  }
-  var simpleAlert = document.querySelector(".simple-alert");
-
-simpleAlert.addEventListener("click", function (e) {
-
-e.preventDefault();
-
-injectTemplate(getBannerTemplate());
-
-var btnClose = document.querySelector(".banner-close");
-
-btnClose.addEventListener("click", function (closeEvt) {
-
-var banner = document.querySelector(".banner");
-
-    banner.parentNode.removeChild(banner);
-
-});
-
-});
-</script> -->
 <script type='x-template' id="banner-template">
   <div class"banner banner-top alert-primary active" role="alert">
     Username Not Exists
@@ -450,23 +409,33 @@ if (isset($_POST['submit']))
     }
     else
     {
-        $sql="SELECT mobile FROM `login` WHERE mobile='$mobile'";
+        $sql="SELECT mobile FROM 'registrations' WHERE mobile='$mobile'";
         $result=$mysqli->query($sql);
         if(mysqli_num_rows($result)>0)
         {
-            echo "<script>alert('Mobile Number Exists!!');</script>";
+          $sql="SELECT mobile FROM `login` WHERE mobile='$mobile'";
+          $result=$mysqli->query($sql);
+          if(mysqli_num_rows($result)>0)
+          {
+              echo "<script>alert('Mobile Number Exists!!');</script>";
+          }
+          else
+          {
+              $password=md5($password);
+              $sql="INSERT INTO `login`(`mobile`, `password`) VALUES ('$mobile','$password')";
+              echo $sql;
+              $result=$mysqli->query($sql);
+              if($result)
+              {
+                  echo "<script>window.location = 'registered.php';</script>";
+              }
+          }
         }
         else
         {
-            $password=md5($password);
-            $sql="INSERT INTO `login`(`mobile`, `password`) VALUES ('$mobile','$password')";
-            echo $sql;
-            $result=$mysqli->query($sql);
-            if($result)
-            {
-                echo "<script>window.location = 'registered.php';</script>";
-            }
+            echo "<script>alert('Mobile Number dosen't Exist!!');</script>";
         }
+
     }
 
 }
