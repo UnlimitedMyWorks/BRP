@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 13, 2019 at 11:26 AM
+-- Generation Time: Sep 16, 2019 at 09:04 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -29,21 +29,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `login` (
-  `mobile` bigint(10) NOT NULL DEFAULT 0,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(70) NOT NULL
+  `mobile` bigint(10) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`mobile`, `username`, `password`) VALUES
-(0, 'bye', 'd688fa514c61a513b6fb6dcdd6c32e65'),
-(0, 'hello', '49f68a5c8493ec2c0bf489821c21fc3b'),
-(0, 'hi', '49f68a5c8493ec2c0bf489821c21fc3b'),
-(0, 'minnu', '25f9e794323b453885f5181f1b624d0b'),
-(0, 'MINNU1031', '9b38067e23298837802635d5172733d7');
+INSERT INTO `login` (`mobile`, `password`) VALUES
+(9963215567, '49f68a5c8493ec2c0bf489821c21fc3b');
 
 -- --------------------------------------------------------
 
@@ -69,30 +64,7 @@ CREATE TABLE `registrations` (
 --
 
 INSERT INTO `registrations` (`fname`, `lname`, `email`, `address`, `state`, `city`, `mobile`, `dob`, `zipcode`, `gender`) VALUES
-('RAJAVARAPU', 'yaswanthkumar', '011111233@gmail.com', '3/355, 3rd ward', 'AndhraPradesh', 'VisÄkhapatnam', 996321556, '2019-12-31', 521121, 'Male'),
-('hi', 'hi', 'hi2minnu@gmail.com', 'Sastra university', 'AndhraPradesh', 'VijayawÄda', 7989152377, '2019-12-31', 613401, 'Male'),
-('Minnu', 'R', '0111112334ma@gmail.com', 'Sastra university', 'Telangana', 'Hyderabad', 7989152378, '2019-12-31', 613401, 'Male'),
-('RAJAVARAPU', 'yaswanthkumar', '0111112334m..a@gmail.com', '3/355, 3rd ward', 'AndhraPradesh', 'VisÄkhapatnam', 9963215561, '2019-12-31', 521121, 'Male'),
-('RAJAVARAPU', 'yaswanthkumar', '0111112334@gmail.com', '3/355, 3rd ward', 'AndhraPradesh', 'VijayawÄda', 9963215567, '2019-12-31', 521121, 'Male');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tickets`
---
-
-CREATE TABLE `tickets` (
-  `from` varchar(30) NOT NULL,
-  `to` varchar(30) NOT NULL,
-  `doj` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tickets`
---
-
-INSERT INTO `tickets` (`from`, `to`, `doj`) VALUES
-('NalgondaXRoads', 'Chaderghat', '2019-09-13');
+('RAJAVARAPU', 'yaswanthkumar', '0111112334ma@gmail.com', '3/355, 3rd ward', 'AndhraPradesh', 'VisÄkhapatnam', 9963215567, '2019-12-31', 521121, 'Male');
 
 --
 -- Indexes for dumped tables
@@ -102,7 +74,7 @@ INSERT INTO `tickets` (`from`, `to`, `doj`) VALUES
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`mobile`);
 
 --
 -- Indexes for table `registrations`
