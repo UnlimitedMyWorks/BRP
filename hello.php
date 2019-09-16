@@ -23,13 +23,11 @@
         font-family: Arial, Helvetica, sans-serif;
         /* background-image: url("image/bg.png"); */
       }
-
       .tc
       {
         margin-left: auto !important;
         margin-right: auto !important;
       }
-
       /* FORM TYPOGRAPHY*/
       input[type=button], input[type=submit], input[type=reset]  {
         background-color: #56baed;
@@ -62,11 +60,10 @@
         -ms-transform: scale(0.95);
         transform: scale(0.95);
       }
-      input[type=number]::-webkit-inner-spin-button, 
-      input[type=number]::-webkit-outer-spin-button { 
-        -webkit-appearance: none; 
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
       }
-
       input[type=number] {
         -moz-appearance: textfield;
       }
@@ -126,12 +123,12 @@
                   <label>Address</label>
                   <input maxlength="150" type="text" name="address" class="form-control" placeholder="Address" required>
                   </div>
-                
+
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group common-ico">
                       <label>State or Territory</label>
-  
+
                       <select id="state" size="1" onchange="makeSubmenu(this.value)" class="form-control pad-left" name="state" required onclick="filterCity()">
                       <option value="" disabled="" selected="">Choose State</option>
                       <option value="AndamanandNicobarIslands"> Andaman and Nicobar Islands </option>
@@ -178,7 +175,7 @@
                       <label>City</label>
                       <select id="citySelect" size="1" class="form-control pad-left" name="city" required>
                       <option value="" disabled="" selected="">Choose City</option>
-                      </select> 
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -188,7 +185,7 @@
                       <label>
                         Mobile
                         </label>
-                        <input id="phone" type="number" min="6000000000" max="9999999999" name="mobile" class="form-control" placeholder="Mobile" required >
+                        <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required >
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -311,12 +308,12 @@ var citiesByState = {
   Puducherry: ["Select City","Puducherry"],
   Punjab: ["Select City","Ludhiana","Amritsar","Jalandhar","Patiala","Bathinda"],
   Rajasthan: ["Select City"],
-  Sikkim: ["Select City"],
   TamilNadu: ["Select City","Chennai","Madurai","Coimbatore","Puducherry",""],
   Telangana: ["Select City","Hyderabad","Warangal","Nizamabad"],
   Tripura: ["Select City"],
   UttarPradesh: ["Select City"],
   Uttarakhand: ["Select City"],
+  Sikkim: ["Select City"],
   WestBengal: ["Select City"]
 }
 function validategmail()
@@ -365,7 +362,7 @@ function inputNumber(evt)
   {
     alert("Please Enter valid phone number");
   }
-  
+
 }
 </script>
 </body>

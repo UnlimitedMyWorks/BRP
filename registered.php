@@ -12,7 +12,7 @@
 <!-- CSS Stylesheet -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/registration-frm-1.css" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -402,7 +402,7 @@ input[type=password]:placeholder {
         </b>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">KYC</a>
+          <a class="dropdown-item" href="kyc.php">KYC</a>
           <a class="dropdown-item" href="sample.php">Log Out</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Help?</a>
@@ -451,11 +451,11 @@ input[type=password]:placeholder {
                       <option value="Bhoiguda"> Bhoiguda </option>
                       </select>
                       <br>
-                      <select id="boarding" size="1" onchange="makeSubmenu(this.value)" class="select" name="boarding" onclick="filterCity()" required="">
-                      <option value="" disabled="" selected="">boarding</option>
+                      <select id="from" size="1" class="select" name="from" required="">
+                      <option value="" disabled="" selected="">From</option>
                       </select>
                       <br>
-                      <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" onclick="filterCity()" required="">
+                      <select id="to" size="1" class="select" name="to" required="">
                       <option value="" disabled="" selected="">To</option>
                       </select>
                       <!-- <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" required onclick="filterCity()" required="">
@@ -502,7 +502,7 @@ input[type=password]:placeholder {
   <?php
   if(isset($_POST["submit"]))
   {
-    $form = $_POST['boarding'];
+    $from = $_POST['from'];
     $to = $_POST['to'];
     $doj = $_POST['doj'];
     if($from == $to)
@@ -511,8 +511,8 @@ input[type=password]:placeholder {
     }
     else
     {
-    $sql="INSERT INTO `tickets`(`boarding`, `to`, `doj`)
-          VALUES ('$board','$to','$doj')";
+    $sql="INSERT INTO `tickets`(`from`, `to`, `doj`)
+          VALUES ('$from','$to','$doj')";
     $result=$mysqli->query($sql);
     echo $sql;
     if($result)
@@ -560,7 +560,8 @@ input[type=password]:placeholder {
       {
         if(value.length==0)
         {
-          document.getElementById("boarding").innerHTML = "<option></option>";
+          document.getElementById("from").innerHTML = "<option></option>";
+          document.getElementById("to").innerHTML = "<option></option>";
         }
         else
         {
@@ -569,19 +570,20 @@ input[type=password]:placeholder {
           {
             busOptions+="<option>"+placesByBus[value][busNum]+"</option>";
           }
-          document.getElementById("boarding").innerHTML = busOptions;
+          document.getElementById("from").innerHTML = busOptions;
+          document.getElementById("to").innerHTML = busOptions;
         }
       }
       function displaySelected()
       {
          var busNo = document.getElementById("busNo").value;
-         var boarding = document.getElementById("boarding").value;
-         alert(busNo+"\n"+boarding);
+         var from = document.getElementById("from").value;
+         alert(busNo+"\n"+from);
       }
       function resetSelection()
       {
         document.getElementById("busNo").selectedIndex = 0;
-        document.getElementById("boarding").selectedIndex = 0;
+        document.getElementById("from").selectedIndex = 0;
       }
     </script>
 </body>

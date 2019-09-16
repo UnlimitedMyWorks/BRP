@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function()
   {
     alert("hello");
@@ -48,7 +48,7 @@ var banner = document.querySelector(".banner");
 });
 
 });
-</script>
+</script> -->
 <script type='x-template' id="banner-template">
   <div class"banner banner-top alert-primary active" role="alert">
     Username Not Exists
@@ -381,14 +381,14 @@ input[type=password]:placeholder {
         <h4><b> Set your Username and Password </b></h4>
         <br><br>
         <!-- Login Form -->
-        
-          <input type="text" id="username" name="username" placeholder="Username" required="">
-          <div id="usernameLoading"></div>
-          <span id="usernameResult"></span>
-          <input type="password" id="password" fromcontrolname="password" name="password" placeholder="password" class="pass" required="">
+
+          <input type="text" id="mobile" maxlength="10" onkeypress="inputNumber(event)" name="mobile" placeholder="Mobile Number" required="">
+          <div id="mobileLoading"></div>
+          <span id="mobileResult"></span>
+          <input type="password" id="password" fromcontrolname="password" name="password" placeholder="Set password" class="pass" required="">
           <input type="password" id="password" name="repassword" placeholder="Re-enter password" required="">
           <input type="submit" method="POST" name="submit" value="Regsiter">
-        
+
 
       </div>
     </center>
@@ -414,10 +414,10 @@ input[type=password]:placeholder {
 //validating UserName
 if(isset($_POST['text']))
 {
-  $username = $_POST['username'];
-  if($username == 'username')
+  $mobile = $_POST['mobile'];
+  if($mobile == 'mobile')
   {
-    $sql="SELECT username FROM `login` WHERE username='$username'";
+    $sql="SELECT mobile FROM `login` WHERE mobile ='$mobile'";
     $result=$mysqli->query($sql);
     if(mysqli_num_rows($result)>0)
     {
@@ -426,7 +426,7 @@ if(isset($_POST['text']))
     else
     {
       $password=md5($password);
-      $sql="INSERT INTO `login`(`username`, `password`) VALUES ('$username','$password')";
+      $sql="INSERT INTO `login`(`mobile`, `password`) VALUES ('$mobile','$password')";
       echo $sql;
       $result=$mysqli->query($sql);
       if($result)
@@ -441,7 +441,7 @@ if(isset($_POST['text']))
 //validating credetials
 if (isset($_POST['submit']))
 {
-    $username = $_POST['username'];
+    $mobile = $_POST['mobile'];
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     if($password != $repassword)
@@ -450,16 +450,16 @@ if (isset($_POST['submit']))
     }
     else
     {
-        $sql="SELECT username FROM `login` WHERE username='$username'";
+        $sql="SELECT mobile FROM `login` WHERE mobile='$mobile'";
         $result=$mysqli->query($sql);
         if(mysqli_num_rows($result)>0)
         {
-            echo "<script>alert('Username Exists!!');</script>";
+            echo "<script>alert('Mobile Number Exists!!');</script>";
         }
         else
         {
             $password=md5($password);
-            $sql="INSERT INTO `login`(`username`, `password`) VALUES ('$username','$password')";
+            $sql="INSERT INTO `login`(`mobile`, `password`) VALUES ('$mobile','$password')";
             echo $sql;
             $result=$mysqli->query($sql);
             if($result)
@@ -473,6 +473,22 @@ if (isset($_POST['submit']))
 
 
 ?>
+<script type="text/javascript">
+//phone inputNumber
+function inputNumber(evt)
+{
+  var ch = String.fromCharCode(evt.which);
+  if(!(/[0-9]/.test(ch)))
+  {
+    evt.preventDefault();
+  }
+  else if((document.getElementById("phone").length < 10) || (document.getElementById("phone").length > 10))
+  {
+    alert("Please Enter valid phone number");
+  }
+
+}
+</script>
 
     </body>
 
