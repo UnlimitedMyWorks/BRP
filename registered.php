@@ -403,6 +403,7 @@ input[type=password]:placeholder {
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="kyc.php">KYC</a>
+          <a class="dropdown-item" href="myBookings.php">My Bookings</a>
           <a class="dropdown-item" href="sample.php">Log Out</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Help?</a>
@@ -458,40 +459,8 @@ input[type=password]:placeholder {
                       <select id="to" size="1" class="select" name="to" required="">
                       <option value="" disabled="" selected="">To</option>
                       </select>
-                      <!-- <select id="to" size="1" onchange="makeSubmenu(this.value)" class="select" name="to" required onclick="filterCity()" required="">
-                      <option value="" disabled="" selected="">To</option>
-                      <option value="NGOsColony"> NGOs Colony </option>
-                      <option value="PanamaGodown"> Panama Godown </option>
-                      <option value="LBNagar"> LB Nagar </option>
-                      <option value="Kothapet"> Kothapet </option>
-                      <option value="Chaitanyapuri"> Chaitanyapuri </option>
-                      <option value="Dilsukhnagar"> Dilsukhnagar </option>
-                      <option value="Mosarambagh"> Mosarambagh </option>
-                      <option value="SuperBazar"> Super Bazar </option>
-                      <option value="NalgondaXRoads"> Nalgonda X Roads </option>
-                      <option value="Malakpet"> Malakpet </option>
-                      <option value="Chaderghat"> Chaderghat </option>
-                      <option value="Womenscollege"> Womens college </option>
-                      <option value="Koti"> Koti Bus Stop </option>
-                      <option value="RamKoti"> Ram Koti </option>
-                      <option value="Badichowdi"> Badichowdi </option>
-                      <option value="MadapatiHanumanthaSchool"> Madapati Hanumantha School </option>
-                      <option value="YMCA"> YMCA(Koti) Bus Stop </option>
-                      <option value="Narayanguda"> Narayanguda </option>
-                      <option value="Chikkadpally"> Chikkadpally </option>
-                      <option value="RTC"> RTC Cross Rd </option>
-                      <option value="GolcondaXRoads"> Golconda X Roads </option>
-                      <option value="SapthagiriTheater"> Sapthagiri Theater </option>
-                      <option value="RajaDelux"> Raja Delux </option>
-                      <option value="MusheerabadBusStop"> Musheerabad Bus Stop </option>
-                      <option value="JailGarden"> Jail Garden </option>
-                      <option value="GandhiHospital"> Gandhi Hospital </option>
-                      <option value="PadmaraoNagar"> Padmarao Nagar </option>
-                      <option value="Punjab"> Bhoiguda </option>
-                      <option value="SecunderabadJunction"> Secunderabad Junction </option>
-                      </select> -->
                       <br>
-          <input type="date" id="doj" name="doj" placeholder="DD/MM/YYYY" required="">
+          <input type="text" id="datepicker" name="doj" placeholder="DD/MM/YYYY" required="">
           <br>
           <br>
           <input type="submit" method="POST" name="submit" value="Regsiter">
@@ -556,6 +525,10 @@ input[type=password]:placeholder {
         PadmaraoNagar: [],
         Bhoiguda: []
       }
+      $(function() {
+          $("#datepicker").datepicker({minDate: new Date()});
+
+                  });
       function makeSubmenu(value)
       {
         if(value.length==0)

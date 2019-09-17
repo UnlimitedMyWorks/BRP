@@ -265,8 +265,8 @@ input[type=button], input[type=submit], input[type=reset]  {
     </div>
 <hr>
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input id="usrnme" type="text" placeholder="Enter Username" name="username" required>
+      <label for="username"><b>Mobile Number</b></label>
+      <input id="mobile" type="text" placeholder="Enter Mobile Number" onclick="inputNumber()" name="mobile" required>
 
       <label for="psw"><b>Password</b></label>
       <input id="psw" type="password" placeholder="Enter Password" name="password" required>
@@ -373,7 +373,15 @@ window.onclick = function(event)
     modal.style.display = "none";
   }
 }
+function inputNumber(evt)
+{
+  var ch = String.fromCharCode(evt.which);
+  if(!(/[0-9]/.test(ch)))
+  {
+    evt.preventDefault();
+  }
 
+}
 
 </script>
 <?php
@@ -394,7 +402,7 @@ if(empty($_POST['password']))
 // Define $username and $password
 if(isset($_POST["submit"]))
 {
-  $username=$_POST['username'];
+  $mobile=$_POST['mobile'];
   $password=$_POST['password'];
 
 
@@ -404,7 +412,7 @@ if(isset($_POST["submit"]))
   // $username = mysql_real_escape_string($username);
   // $password = mysql_real_escape_string($password);
   $password=md5($password);
-  $sql="SELECT * FROM `login` WHERE username='$username' and password='$password'";
+  $sql="SELECT * FROM `login` WHERE mobile='$mobile' and password='$password'";
 
   $result=$mysqli->query($sql);
 
@@ -414,7 +422,7 @@ if(isset($_POST["submit"]))
   if ($count==1) {
     echo "<script >window.location = 'registered.php';</script>";
   } else {
-      echo "<script>alert('unmatched username and password');</script>";
+      echo "<script>alert('Unmatched Mobile Number and Password');</script>";
   }
 }
 ?>

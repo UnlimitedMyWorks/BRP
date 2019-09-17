@@ -185,7 +185,7 @@
                       <label>
                         Mobile
                         </label>
-                        <input id="phone" type="text" maxlength="10" name="mobile" class="form-control" placeholder="Mobile" required >
+                        <input id="phone" type="text" maxlength="10" name="mobile" onclick="inputNumber()" class="form-control" placeholder="Mobile" required >
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -224,7 +224,7 @@
                 <br>
                 <br>
                 <center>
-                  <input type="submit" method="POST" style="justify-content: center;" name="submit" class="button" value="Regsiter Now">
+                  <input type="submit" method="POST" onclick="return phonenumber()" style="justify-content: center;" name="submit" class="button" value="Regsiter Now">
                 </center>
               </form>
               <center><p class="msg-1 msg-2-bg"></p></center>
@@ -358,12 +358,21 @@ function inputNumber(evt)
   {
     evt.preventDefault();
   }
-  else if(document.getElementById("phone").length < 10)
-  {
-    alert("Please Enter valid phone number");
-  }
-
 }
+function phonenumber()
+{
+var inputtxt = document.getElementById("phone").value;
+  var phoneno = /^\d{10}$/;
+  if(inputtxt.match(phoneno) && inputtxt.length == 10)
+  {
+      return true;
+  }
+  else
+  {
+     alert("Not a valid Phone Number");
+     return false;
+  }
+  }
 </script>
 </body>
 </html>
