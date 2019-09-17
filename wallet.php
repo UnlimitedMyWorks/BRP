@@ -421,11 +421,11 @@ input[type=password]:placeholder {
         <h2><b> Wallet </b></h4>
         <span style="font-size: 80px" class="value">
           <strong>
-          Rs 0.5
+          Rs 0.0
         </strong>
         </span>
         <br><br>
-        <input numbers-only="numbers-only" maxlength="6" class="ng-valid md-input ng-valid-maxlength ng-dirty ng-valid-parse ng-empty ng-touched" id="addMoney" tabindex="0" aria-invalid="false">
+        <input type="text" numbers-only="numbers-only" maxlength="6" id="addMoney" onkeypress="inputNumber(event)" placeholder="Enter Amount to be added " aria-invalid="false">
         <br>
         <br>
           <input type="submit" method="POST" name="submit" value="ADD MONEY">
@@ -440,7 +440,15 @@ input[type=password]:placeholder {
   }
   ?>
     <script>
+    function inputNumber(evt)
+    {
+      var ch = String.fromCharCode(evt.which);
+      if(!(/[0-9.]/.test(ch)))
+      {
+        evt.preventDefault();
+      }
 
+    }
     </script>
 </body>
 </html>
