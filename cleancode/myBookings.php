@@ -1,4 +1,14 @@
-<?php include("config.php"); ?>
+<?php include("config.php"); 
+      session_start();
+      if(!isset($_SESSION['user']))
+      {
+          header("Location:index.php");
+      }
+      include("config.php");
+      if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+      }
+?>
 <html lang="en">
 <head>
   <title>
@@ -428,18 +438,28 @@ input[type=password]:placeholder {
   <th>From</th>
   <th>To</th>
   <th>Date</th>
-  <th>Status</th>
+  <th>Time Booked</th>
   </tr>
   </thead>
+  <tbody>
+  <?php
+    $user=$_SESSION['user'];
+    $sql="SELECT * FROM `ticket_bookings` WHERE `mobile`='$user'";
+    $result=$mysqli->query($sql);
+    for($i=0;$i<mysqli_num_rows($result);$i++)
+    {
+      $row=$result->fetch_assoc();
+      echo "<tr><td>".$row['ticket_id']."</td><td>".$row['fromDestination']."</td><td>".$row['toDestination']."</td><td>".$row['date']."</td><td>".$row['time_booked']."</td></tr>";
+    }
+
+  ?>
+  </tbody>
 </table>
 </div>
       </div>
 </center>
 
-  <?php
-
-
-  ?>
+  
     <script>
 
     </script>
