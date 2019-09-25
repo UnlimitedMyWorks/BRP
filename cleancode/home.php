@@ -69,14 +69,16 @@
     }
     else
     {
-      $sql="SELECT COUNT ticket_id from ticket_bookings";
+      $sql="SELECT COUNT(ticket_id) from ticket_bookings";
       $result=$mysqli->query($sql);
       $count=mysqli_num_rows($result);
       $ticketid=md5(sha1(time()+$count));
-      $sql="INSERT INTO `ticket_bookings`(`mobile`, `ticket_id`, `fromDestination`, `toDestination`, `status`) VALUES ('$user','$ticketid','$from','$to','TNO')";
+      $sql="INSERT INTO `ticket_bookings`(`mobile`, `ticket_id`, `fromDestination`, `toDestination`,`date`, `status`) VALUES ('$user','$ticketid','$from','$to','$doj','TNO')";
       $result=$mysqli->query($sql);
       if($result)
         echo "<script>alert('ticket booked !!')</script>";
+      else
+      echo "<script>alert('ticket not booked !!')</script>";
     }
   }
 ?>
